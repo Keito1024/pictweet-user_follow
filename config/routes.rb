@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'map/index'
+
   devise_for :users
   root 'tweets#index'
   resources :tweets do

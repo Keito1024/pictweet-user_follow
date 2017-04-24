@@ -1,10 +1,42 @@
-<div class="contents row">
+
+<div class="contents row" style="margin-top:50px;">
     <%= form_tag("/tweets/#{@tweet.id}", method: :patch ) do %>
       <h3>
         編集する
       </h3>
-      <input placeholder="Image Url" type="text" name="image" value="<%= @tweet.image %>" autofocus="true">
+
+      <div id="js-selectFile" style="text-align:center;margin:50px;">
+      <!-- 非表示にするボタン -->
+      <input id="js-upload" type="file" style="display:none" name="image" value="<%= @tweet.image %>">
+      <!-- オリジナルボタン -->
+      <button class="original_btn">ファイルを選択</button>
+      <!-- アイコン -->
+      <span class="icon">未選択</span>
+      </div>
+
       <textarea cols="30" name="text" placeholder="text" rows="10"><%= @tweet.text %></textarea>
       <input type="submit" value="SENT">
     <% end %>
   </div>
+
+<script>
+
+  $('#js-selectFile').on('click', 'button', function () {
+      $('#js-upload').click();
+      return false;
+  });
+
+  $('#js-upload').on('change', function() {
+      //選択したファイル情報を取得し変数に格納
+      var file = $(this).prop('files')[0];
+      //アイコンを選択中に変更
+      $('#js-selectFile').find('.icon').addClass('select').html('選択中');
+      //未選択→選択の場合（.filenameが存在しない場合）はファイル名表示用の<div>タグを追加
+      if(!($('.filename').length)){
+          $('#js-selectFile').append('<div class="filename"></div>');
+      };
+      //ファイル名を表示
+      $('.filename').html('ファイル名：' + file.name);
+  });
+
+  </script>
