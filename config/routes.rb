@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :comments, only: [:create]
   end
+  resources :tweets do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :users do
     member do
      get :following, :followers
