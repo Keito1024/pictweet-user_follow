@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423044152) do
+ActiveRecord::Schema.define(version: 20170428045102) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20170423044152) do
     t.text     "text",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "description", limit: 255
+    t.string   "address",     limit: 255
+    t.float    "latitude",    limit: 24
+    t.float    "longitude",   limit: 24
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -54,9 +63,6 @@ ActiveRecord::Schema.define(version: 20170423044152) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "nickname",               limit: 255
-    t.string   "address",                limit: 255
-    t.float    "latitude",               limit: 24
-    t.float    "longitude",              limit: 24
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
