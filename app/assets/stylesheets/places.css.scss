@@ -1,3 +1,15 @@
 // Place all the styles related to the places controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.new_place{
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+}
+th, td{
+  padding-bottom: 30px;
+}
+td {
+  a{
+  padding-right: 30px;
+}}
