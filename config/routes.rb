@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  
+
 
   resources :places
   get 'map/index'
 
-  resources :places
-  resources :places
+  
   devise_for :users
   root 'tweets#index'
   resources :tweets do

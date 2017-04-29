@@ -17,6 +17,7 @@
       <tr>
 
         <td style="width:175px;padding-right:70px;text-align:center;"><%= place.description %></td>
+
         <td style="padding-right:30px;"><%= place.address %></td>
         <!-- <td><%= place.latitude %></td>
         <td><%= place.longitude %></td> -->
@@ -24,6 +25,7 @@
         <td><%= link_to 'Edit', edit_place_path(place) %></td>
         <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+
     <% end %>
   </tbody>
 </table>
@@ -31,5 +33,5 @@
 <br>
 <div style="    display: block;margin: 0 auto;width: 500px;text-align: center;">
   <%= link_to '住所登録', new_place_path,:style =>"margin-right:50px;"%>
-  <%= link_to '地図を見る',map_index_path %>
+  <%= link_to '地図を見る', map_index_path %>
 </div>

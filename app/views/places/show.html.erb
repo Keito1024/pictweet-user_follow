@@ -1,21 +1,21 @@
 
 
 
-<div style="text-align:center;">
+<div style="margin:50px auto 50px auto;display:block;width:335px;">
 
 
 
 <p>
-  <strong>Description:</strong>
+  <strong style="min-width:120px">Description:</strong>
   <%= @place.description %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong style="min-width:120px;">Address:</strong>
   <%= @place.address %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Latitude:</strong>
   <%= @place.latitude %>
 </p>
@@ -23,8 +23,9 @@
 <p>
   <strong>Longitude:</strong>
   <%= @place.longitude %>
-</p>
-
+</p> -->
+</div>
+<div style="    display: block;margin: 0 auto;width: 500px;text-align: center;">
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
 </div>
