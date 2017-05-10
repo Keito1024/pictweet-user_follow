@@ -52,4 +52,4 @@ end
   gem 'devise'
   gem 'gmaps4rails'
   gem "geocoder"
-   gem 'omniauth-facebook'
+  gem 'omniauth-facebook'
