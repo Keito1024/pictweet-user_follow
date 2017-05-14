@@ -18,34 +18,69 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(wf, s);
       })();
+
+      $('.dropdown-toggle').dropdown()
     </script>
+
+    <style>
+    .dropdown-menu.left {
+ right:0;
+ left:auto;
+ &::before {left:auto !important; right:9px;}
+ &::after {left:auto !important; right:10px;}
+}
+
+a.dropdown-toggle{
+  display: inline-block;
+      padding-top: 15px;
+}
+
+    </style>
   </head>
 
   <body>
+
     <header class="header">
     <div class="header__bar row">
-      <h1 class="grid-6"><a href="/places">PicTweet</a></h1>
+      <h1 class="grid-6" style="width:500px;"><a href="/places"style="width:495px;">PicTweet</a></h1>
       <% if user_signed_in? %>
-        <div class="user_nav grid-6">
-          <span><%= current_user.nickname %>
-            <ul class="user__info">
-              <li>
-                <a href="/users/<%= current_user.id %>">マイページ</a>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              </li>
-            </ul>
-          </span>
-          <a class="post" href="/tweets/new">投稿する</a>
-        </div>
+
+      <ul class="nav pills">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+    <%= current_user.nickname %>
+      <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu left">
+      <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+      <li><a class="post" href="/tweets/new">投稿する</a></li>
+      <li class="divider"></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      </ul>
+
+
       <% else %>
-        <div class="grid-6">
-          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+        <!-- <div class="grid-6"> -->
+
+          <ul class="nav pills">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+          Dropdown
+          <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu left">
+          <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
+          <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
+          <li><%= link_to "Facebook", user_facebook_omniauth_authorize_path, class: 'post'%></li>
+          <li class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+          </ul>
+
+          <!-- <%= link_to "ログイン", new_user_session_path, class: 'post' %>
           <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
-          <%= link_to "Facebook", user_facebook_omniauth_authorize_path, class: 'post'%>
-        </div>
+          <%= link_to "Facebook", user_facebook_omniauth_authorize_path, class: 'post'%> -->
+        <!-- </div> -->
       <% end %>
-    </div>
-  </header>
+
+    </header>
 
     <%= yield %>
 
