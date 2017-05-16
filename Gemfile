@@ -53,3 +53,5 @@ end
   gem 'gmaps4rails'
   gem "geocoder"
   gem 'omniauth-facebook'
+  gem 'twitter-bootstrap-rails'
+gem 'bootstrap-material-design', '0.1.4'
