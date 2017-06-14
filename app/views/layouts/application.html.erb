@@ -20,7 +20,7 @@
       })();
 
       $('.dropdown-toggle').dropdown()
-    
+
     </script>
 
     <style>
@@ -64,13 +64,13 @@ a.dropdown-toggle{
 
           <ul class="nav pills">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-          Dropdown
+          Menu
           <b class="caret"></b>
           </a>
           <ul class="dropdown-menu left">
           <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li>
           <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li>
-          <li><%= link_to "Facebook", user_facebook_omniauth_authorize_path, class: 'post'%></li>
+          <!-- <li><%= link_to "Facebook", user_facebook_omniauth_authorize_path, class: 'post'%></li> -->
           <li class="divider"></li>
           <li><a href="#">Separated link</a></li>
           </ul>
